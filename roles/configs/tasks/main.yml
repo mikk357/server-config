@@ -33,7 +33,7 @@
     accept_hostkey: yes
     force: true
     depth: 1
-    version: "{{ lookup('env', 'ANSIBLE_PULL_BRANCH', default='develop') }}"
+    version: "{{ lookup('env', 'ANSIBLE_PRIVATE_PULL_BRANCH', default='develop') }}"
   when: p.stat.exists
 
 - name: Clone delve settings repo
