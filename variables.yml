@@ -1,2 +1,5 @@
 privateSettingsSSH: git@github.com:MineInAbyss/server-config-private.git
 privateSettingsDest: "{{ home }}/mineinabyss/server-config-private"
+
+delveSettingsSSH: git@github.com:MineInAbyss/server-config-delve.git
+delveSettingsDest: "{{ home }}/mineinabyss/server-config-delve"

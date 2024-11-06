@@ -19,6 +19,12 @@
     scope: global
     value: "{{ privateSettingsDest }}"
 
+- name: Ensure we ignore ownership of repo being different
+  community.general.git_config:
+    name: safe.directory
+    scope: global
+    value: "{{ delveSettingsDest }}"
+
 - name: Clone private settings repo
   ansible.builtin.git:
     repo: "{{ privateSettingsSSH }}"
@@ -28,4 +34,15 @@
     force: true
     depth: 1
     version: "{{ lookup('env', 'ANSIBLE_PULL_BRANCH', default='develop') }}"
+  when: p.stat.exists
+
+- name: Clone delve settings repo
+  ansible.builtin.git:
+    repo: "{{ delveSettingsSSH }}"
+    dest: "{{ delveSettingsDest }}"
+    key_file: "/run/secrets/server_config_ssh_key"
+    accept_hostkey: yes
+    force: true
+    depth: 1
+    version: "{{ lookup('env', 'ANSIBLE_DELVE_PULL_BRANCH', default='develop') }}"
   when: p.stat.exists
