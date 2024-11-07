@@ -40,7 +40,7 @@
   ansible.builtin.git:
     repo: "{{ delveSettingsSSH }}"
     dest: "{{ delveSettingsDest }}"
-    key_file: "/run/secrets/server_config_ssh_key"
+    key_file: "/run/secrets/delve_ssh_key"
     accept_hostkey: yes
     force: true
     depth: 1
