@@ -85,7 +85,7 @@ delve:
       enableHover: true
       serverPrefix: ":test::space_-4:"
       localChatRadius: 0
-  copyPaths: [ "{{ delveSettingsDest }}" ]
+  copyPaths: [ "{{ delveSettingsDest }}/feat/quests" ]
   include:
     - minecraft
     - feat/blocks
